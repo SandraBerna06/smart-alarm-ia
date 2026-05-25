@@ -8,6 +8,7 @@ public class Alarm {
     private Set<Integer> repeatDays; // 1-7 (Mon-Sun)
     private String sound;
     private int volume;
+    private boolean snoozed = false;
 
     public Alarm(int hour, int minute, String label) {
         this.hour = hour;
@@ -46,4 +47,11 @@ public class Alarm {
     public String toString() {
         return "Alarm: " + label + " " + hour + ":" + minute + " Active:" + active;
     }
+    public void snooze() {
+    snoozed = true;
+}
+
+public void stopSnooze() {
+    snoozed = false;
+}
 }

@@ -13,5 +13,8 @@ public class Main {
         manager.addAlarm(a2);
 
         manager.showAlarms();
+
+        a1.setCircadianMode(true);
+        a1.simulateWakeUp();
     }
 }

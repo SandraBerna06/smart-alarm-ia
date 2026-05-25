@@ -1,0 +1,15 @@
+flowchart TD
+
+Usuario((Usuario))
+
+Usuario --> Crear[(Crear alarma)]
+Usuario --> Eliminar[(Eliminar alarma)]
+Usuario --> Activar[(Activar alarma)]
+Usuario --> Desactivar[(Desactivar alarma)]
+Usuario --> Consultar[(Consultar alarmas activas)]
+Usuario --> Snooze[(Snooze alarma)]
+Usuario --> Vacaciones[(Modo vacaciones)]
+Usuario --> Circadiano[(Modo circadiano)]
+
+Vacaciones -.-> Consultar
+Snooze -.-> Activar

@@ -2,6 +2,7 @@ import java.util.*;
 
 public class AlarmManager {
     private List<Alarm> alarms = new ArrayList<>();
+    private boolean vacationMode = false;
 
     public void addAlarm(Alarm alarm) {
         alarms.add(alarm);
@@ -11,7 +12,11 @@ public class AlarmManager {
         alarms.removeIf(a -> a.getLabel().equals(label));
     }
 
-    public List<Alarm> getActiveAlarms() {
+     public List<Alarm> getActiveAlarms() {
+        if (vacationMode) {
+            return new ArrayList<>();
+        }
+
         List<Alarm> active = new ArrayList<>();
         for (Alarm a : alarms) {
             if (a.isActive()) active.add(a);
@@ -24,4 +29,16 @@ public class AlarmManager {
             System.out.println(a);
         }
     }
+
+    public void enableVacationMode() {
+    vacationMode = true;
+}
+
+public void disableVacationMode() {
+    vacationMode = false;
+}
+
+public boolean isVacationMode() {
+    return vacationMode;
+}
 }

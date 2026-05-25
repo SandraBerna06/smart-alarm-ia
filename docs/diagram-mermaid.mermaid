@@ -1,0 +1,31 @@
+classDiagram
+
+class Alarm {
+    - int hour
+    - int minute
+    - String label
+    - boolean active
+    - Set~Integer~ repeatDays
+    - String sound
+    - int volume
+    - boolean circadianMode
+
+    + Alarm(int hour, int minute, String label)
+    + void activate()
+    + void deactivate()
+    + void snooze()
+    + void setCircadianMode(boolean enabled)
+    + void simulateWakeUp()
+}
+
+class AlarmManager {
+    - List~Alarm~ alarms
+    - boolean vacationMode
+
+    + void addAlarm(Alarm alarm)
+    + void removeAlarm(String label)
+    + List~Alarm~ getActiveAlarms()
+    + void setVacationMode(boolean status)
+}
+
+AlarmManager "1" --> "*" Alarm
